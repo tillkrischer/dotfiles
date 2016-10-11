@@ -1,0 +1,1 @@
+../hyperzsh/hyperzsh.zsh-theme

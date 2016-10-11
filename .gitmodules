@@ -1,0 +1,6 @@
+[submodule ".oh-my-zsh/custom/hyperzsh"]
+	path = .oh-my-zsh/custom/hyperzsh
+	url = https://github.com/tylerreckart/hyperzsh
+[submodule ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

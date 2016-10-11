@@ -1,0 +1,1 @@
+eclipseaction run org.eclipse.debug.ui.commands.DebugLast
