@@ -5,5 +5,5 @@ install zsh, zsh-syntax-highlighting from arch
 install oh-my-zsh from script
 
 to get submodules
-"git submodule update --init --recursive"
+`git submodule update --init --recursive`
 
