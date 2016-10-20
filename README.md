@@ -6,6 +6,8 @@ to get submodules
 to create symlinks
 `stow -t ~ vim`
 
+
+
 For zsh:
 
 install zsh, zsh-syntax-highlighting from package manager
