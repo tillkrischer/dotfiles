@@ -1,1 +1,1 @@
-../hyperzsh/hyperzsh.zsh-theme
+../../../../modules/hyperzsh/hyperzsh.zsh-theme

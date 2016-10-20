@@ -2,5 +2,5 @@
 	path = modules/hyperzsh
 	url = https://github.com/tylerreckart/hyperzsh.git
 [submodule "modules/zsh-syntax-highlighting"]
-	path = modules/sh-syntax-highlighting
+	path = modules/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
