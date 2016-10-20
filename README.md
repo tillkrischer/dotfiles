@@ -10,6 +10,4 @@ to create symlinks
 
 For zsh:
 
-install zsh, zsh-syntax-highlighting from package manager
-
-install oh-my-zsh from script
+install oh-my-zsh from script first
