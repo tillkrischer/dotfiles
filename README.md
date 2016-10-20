@@ -7,3 +7,5 @@ install oh-my-zsh from script
 to get submodules
 `git submodule update --init --recursive`
 
+to create symlinks
+`stow -t ~ vim`
