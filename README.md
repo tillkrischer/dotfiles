@@ -11,5 +11,3 @@ to create symlinks
 For zsh:
 
 install oh-my-zsh from script first
-
-
