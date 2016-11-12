@@ -1,9 +1,33 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'neomake/neomake'
-Plug 'Lokaltog/vim-powerline'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 call plug#end()
 
-autocmd! BufWritePost * Neomake
+" Let's be smart about indentation, including custom per-filetype
+filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
+set autoindent
+
+" 4 column expanded tabs by default
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=4
+
+"syntax highlighting, numbering
+set number
+"set colorcolumn=80
+syntax on
+
+" Be smart about case sensitivity
+set ignorecase
+set smartcase
+
+" Anything but utf-8 is silly
+set encoding=utf-8
+
+set splitbelow
+set splitright
 
