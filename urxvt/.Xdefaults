@@ -1,0 +1,7 @@
+urxvt*scrollBar: false
+
+URxvt.font:     xft:Monospace:size=12:antialias=true
+URxvt.boldFont: xft:Monospace:bold:size=12:antialias=true
+
+urxvt*foreground: white
+urxvt*background: black
