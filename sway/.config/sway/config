@@ -44,6 +44,44 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # The escape symbol "\" has to be removed.
 # Read `man 5 sway-input` for more information about this section.
 
+input "1739:30381:DLL0665:01_06CB:76AD_To" {
+    natural_scroll enabled
+#    middle_emulation enabled
+}
+
+#[
+#   {
+#     "identifier": "0:1:Power_Button"
+#   },
+#   {
+#     "identifier": "0:6:Video_Bus"
+#   },
+#   {
+#     "identifier": "0:1:Power_Button"
+#   },
+#   {
+#     "identifier": "0:3:Sleep_Button"
+#   },
+#   {
+#     "identifier": "3034:22146:Integrated_Web"
+#   },
+#   {
+#     "identifier": "1739:30381:DLL0665:01_06CB:76AD_To"
+#   },
+#   {
+#     "identifier": "0:0:Intel_HID_events"
+#   },
+#   {
+#     "identifier": "1:1:AT_Translated_Set_2_keyboard"
+#   },
+#   {
+#     "identifier": "2:1:PS\/2_Generic_Mouse"
+#   },
+#   {
+#     "identifier": "0:0:Dell_WMI_hotkeys"
+#   }
+# ]
+
 ### Key bindings
 #
 # Basics:
@@ -204,3 +242,4 @@ bar {
 # include ~/.config/sway/`hostname`/*
 
 new_window none
+
