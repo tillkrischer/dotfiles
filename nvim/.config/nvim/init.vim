@@ -1,41 +1,28 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'tpope/vim-commentary' 
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'ervandew/supertab'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
-" let g:deoplete#enable_at_startup = 1
-" if !exists('g:deoplete#omni#input_patterns')
-" 	let g:deoplete#omni#input_patterns = {}
-" endif
+runtime! archlinux.vim
 
-" Let's be smart about indentation, including custom per-filetype
-filetype plugin indent on
-set autoindent
-
-" 4 column expanded tabs by default
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set softtabstop=4
-
-"syntax highlighting, numbering
+" numbering
 set relativenumber
 set number
-"set colorcolumn=80
-syntax on
 
-" Be smart about case sensitivity
-set ignorecase
-set smartcase
+set colorcolumn=80
+" enable syntax and plugins (for netrw)
+syntax enable
+filetype plugin on
 
-" Anything but utf-8 is silly
-set encoding=utf-8
-
-set splitbelow
-set splitright
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 
