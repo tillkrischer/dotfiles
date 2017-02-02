@@ -4,8 +4,6 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'ntpeters/vim-better-whitespace'
-" Plug 'wikitopian/hardmode'
 
 call plug#end()
 
