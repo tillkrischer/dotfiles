@@ -7,7 +7,6 @@ runtime! archlinux.vim
 set relativenumber
 set number
 
-set colorcolumn=80
 " enable syntax and plugins (for netrw)
 syntax enable
 filetype plugin on
@@ -22,3 +21,5 @@ set expandtab
 
 " Display all matching files when we tab complete
 set wildmenu
+
+imap jj <Esc>
