@@ -7,3 +7,6 @@
 [submodule "modules/vim-plug"]
 	path = modules/vim-plug
 	url = https://github.com/junegunn/vim-plug.git
+[submodule "spacemacs/.emacs.d"]
+	path = spacemacs/.emacs.d
+	url = https://github.com/syl20bnr/spacemacs
