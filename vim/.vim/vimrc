@@ -1,5 +1,3 @@
-runtime! archlinux.vim
-
 call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-commentary'
@@ -7,8 +5,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
 call plug#end()
 
-set relativenumber
 set number
+set relativenumber
 
 set ts=2 sw=2 et
 
