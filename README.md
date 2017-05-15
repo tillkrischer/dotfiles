@@ -8,10 +8,6 @@ to get submodules
 to create symlinks
 `stow -t ~ vim`
 
-For zsh:
-
-install oh-my-zsh from script first
-
 ## aur packages:
 
 - google-chrome
