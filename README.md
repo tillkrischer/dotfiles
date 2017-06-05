@@ -8,11 +8,7 @@ to get submodules
 to create symlinks
 `stow -t ~ vim`
 
-## aur packages:
+install oh-my-zsh from script first, but leave login shell as bash
 
-- google-chrome
-- gtk-theme-arc-git
-- numix-circle-icon-theme-git
-- pacaur
-- ttf-ms-fonts
-- ttf-roboto-mono
+sway needs light command in path
+
