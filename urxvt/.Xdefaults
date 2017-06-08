@@ -1,14 +1,6 @@
-urxvt*scrollBar: false
-
+!! use first 8 colors twice
 *background: #002b36
 *foreground: #839496
-
-URxvt.font:     xft:Roboto Mono:size=12:antialias=true
-! URxvt.boldFont: xft:Roboto Mono:bold:size=12:antialias=true
-URxvt.boldFont: 
-
-URxvt*depth: 32
-URxvt*background: rgba:0000/2b00/3600/f000
 
 !! black dark/light
 *color0: #073642
@@ -41,3 +33,17 @@ URxvt*background: rgba:0000/2b00/3600/f000
 !! white dark/light
 *color7: #eee8d5
 *color15: #eee8d5
+
+
+!! urxvt specific
+urxvt*loginShell: true
+
+urxvt*scrollBar: false
+
+urxvt.font:     xft:Roboto Mono:size=12:antialias=true
+urxvt.boldFont: 
+urxvt.letterSpace: -1
+
+urxvt*depth: 32
+urxvt*background: rgba:0000/2b00/3600/f000
+
