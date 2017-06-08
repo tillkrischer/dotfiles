@@ -10,5 +10,11 @@ to create symlinks
 
 install oh-my-zsh from script first, but leave login shell as bash
 
-sway needs light command in path
+## aur dependencies
+
+j4-dmenu-desktop
+light
+numix-icon-theme-git
+ttf-ms-fonts
+ttf-roboto-mono
 
