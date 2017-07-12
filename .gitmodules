@@ -1,12 +1,12 @@
 [submodule "modules/zsh-syntax-highlighting"]
-	path = modules/zsh-syntax-highlighting
+	path = zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "modules/vim-pathogen"]
-	path = modules/vim-pathogen
+	path = vim/.vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule "modules/vim-sensible"]
-	path = modules/vim-sensible
+	path = vim/.vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
 [submodule "modules/vim-colors-solarized"]
-	path = modules/vim-colors-solarized
+	path = vim/.vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
