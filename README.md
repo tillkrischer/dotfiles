@@ -15,8 +15,8 @@ for vim on windows
 
 for command not found support on arch:
 
-install 'pkgfile'
-`pkgfile --update`
+- install 'pkgfile'
+- `pkgfile --update`
 
 ## aur dependencies
 
