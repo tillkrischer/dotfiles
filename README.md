@@ -8,7 +8,10 @@ to get submodules
 to create symlinks
 `stow -t ~ vim`
 
-install oh-my-zsh from script first, but leave login shell as bash
+for vim on windows
+`mklink /D vimfiles Documents\GitHub\dotfiles\vim\.vim`
+
+install oh-my-zsh from script first
 
 ## aur dependencies
 
