@@ -1,16 +1,37 @@
-source .antigen/antigen.zsh
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+setopt appendhistory autocd extendedglob nomatch notify
+bindkey -e
+# End of lines configured by zsh-newuser-install
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/till/.zshrc'
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle command-not-found
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
+# completion options
+#setopt menucomplete 
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# Load the theme.
-antigen theme robbyrussell
+#color
+autoload -U colors 
+colors
 
-# Tell Antigen that you're done.
-antigen apply
+# prompt
+autoload -Uz promptinit
+promptinit
+PROMPT='%F{blue}%1~%f %f➜%f '
+RPROMPT='[%F{yellow}%?%f]'
+
+# alias
+alias ls="ls --color=auto"
+
+# plugin
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=14'
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
