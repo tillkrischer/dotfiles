@@ -1,1 +1,0 @@
-../../../../modules/hyperzsh/hyperzsh.zsh-theme
