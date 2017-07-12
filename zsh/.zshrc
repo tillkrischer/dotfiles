@@ -28,6 +28,12 @@ promptinit
 PROMPT='%F{blue}%1~%f %f➜%f '
 RPROMPT='[%F{yellow}%?%f]'
 
+# command not foud 
+# ubuntu
+[[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
+# arch
+[[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
+
 # alias
 alias ls="ls --color=auto"
 

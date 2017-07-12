@@ -11,7 +11,12 @@ to create symlinks
 for vim on windows
 `mklink /D vimfiles Documents\GitHub\dotfiles\vim\.vim`
 
-install oh-my-zsh from script first
+## zsh
+
+for command not found support on arch:
+
+install 'pkgfile'
+`pkgfile --update`
 
 ## aur dependencies
 
