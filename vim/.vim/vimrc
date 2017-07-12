@@ -1,7 +1,5 @@
-call plug#begin('~/.vim/plugged')
-  Plug 'tpope/vim-sensible'
-  Plug 'altercation/vim-colors-solarized'
-call plug#end()
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 
 colorscheme solarized
 
