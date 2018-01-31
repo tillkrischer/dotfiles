@@ -3,6 +3,10 @@ if has("gui_running")
   colorscheme solarized
 endif
 
+if has("win32")
+   set guifont=Consolas:h11:cANSI
+endif
+
 set number
 set relativenumber
 
