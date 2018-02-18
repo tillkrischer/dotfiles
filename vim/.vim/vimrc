@@ -9,5 +9,12 @@ endif
 
 set number
 set relativenumber
-
 set ts=2 sw=2 et
+
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
+set exrc
+"set secure
