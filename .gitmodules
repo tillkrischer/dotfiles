@@ -10,3 +10,12 @@
 [submodule "zsh/.zsh/plugins/zsh-autosuggestions"]
 	path = zsh/.zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "vim/.vim/pack/my-plugins/opt/vim-javascript"]
+	path = vim/.vim/pack/my-plugins/opt/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/.vim/pack/my-plugins/opt/ale"]
+	path = vim/.vim/pack/my-plugins/opt/ale
+	url = https://github.com/w0rp/ale.git
+[submodule "vim/.vim/pack/my-plugins/opt/nerdtree"]
+	path = vim/.vim/pack/my-plugins/opt/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
