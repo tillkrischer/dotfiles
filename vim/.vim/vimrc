@@ -16,5 +16,7 @@ command Wq wq
 command W w
 command Q q
 
+imap jj <Esc>
+
 set exrc
 "set secure
