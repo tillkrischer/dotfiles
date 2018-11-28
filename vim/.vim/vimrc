@@ -1,7 +1,12 @@
 if has("gui_running")
 "    set background=light
 "    colorscheme solarized
+    colorscheme OceanicNext
     set guioptions-=T
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=R
 endif
 
 if has("win32")
