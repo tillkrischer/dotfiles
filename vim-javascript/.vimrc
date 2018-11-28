@@ -1,6 +1,7 @@
 let g:ale_fixers = ['prettier']
 
 packadd vim-javascript
+packadd vim-jsx
 packadd ale
 packadd nerdtree
 
