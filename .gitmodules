@@ -19,3 +19,12 @@
 [submodule "vim/.vim/pack/my-plugins/opt/nerdtree"]
 	path = vim/.vim/pack/my-plugins/opt/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim\\.vim\\pack\\my-plugins\\opt\\vim-jsx"]
+	path = vim\\.vim\\pack\\my-plugins\\opt\\vim-jsx
+	url = https://github.com/mxw/vim-jsx.git
+[submodule "vim\\.vim\\pack\\my-plugins\\start\\oceanic-next"]
+	path = vim\\.vim\\pack\\my-plugins\\start\\oceanic-next
+	url = https://github.com/mhartington/oceanic-next.git
+[submodule "vim\\.vim\\pack\\my-plugins\\start\\vim-airline"]
+	path = vim\\.vim\\pack\\my-plugins\\start\\vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
