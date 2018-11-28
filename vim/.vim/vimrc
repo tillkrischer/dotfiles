@@ -10,7 +10,7 @@ if has("win32")
 endif
 
 set number
-set relativenumber
+"set relativenumber
 set ts=4 sw=4 et
 
 command WQ wq
