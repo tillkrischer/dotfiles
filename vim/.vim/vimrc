@@ -1,13 +1,16 @@
 if has("gui_running")
-  set background=light
-  colorscheme solarized
+    set background=light
+    colorscheme solarized
 endif
 
 if has("win32")
-   set guifont=Consolas:h11:cANSI
+    set guifont=Consolas:h11:cANSI
+    map <C-S-V> "+gP
+    map <C-S-C> "+y
 endif
 
 set number
+"set relativenumber
 set ts=4 sw=4 et
 
 command WQ wq
