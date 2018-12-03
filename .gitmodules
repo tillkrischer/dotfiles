@@ -28,3 +28,6 @@
 [submodule "vim/.vim/pack/my-plugins/opt/yajs.vim"]
 	path = vim/.vim/pack/my-plugins/opt/yajs.vim
 	url = https://github.com/othree/yajs.vim.git
+[submodule "vim\\.vim\\pack\\my-plugins\\start\\vim-sensible"]
+	path = vim\\.vim\\pack\\my-plugins\\start\\vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
