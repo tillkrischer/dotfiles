@@ -6,6 +6,10 @@ packadd ale
 "packadd vim-javascript
 "packadd nerdtree
 
+if has("gui_running")
+    colorscheme OceanicNext
+endif
+
 set ts=2 sw=2 et
 set ff=unix
 
