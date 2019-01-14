@@ -17,6 +17,9 @@ endif
 
 let g:airline_theme='oceanicnext'
 
+set undofile
+set undodir=$HOME/vimfiles/undo
+
 set number
 "set relativenumber
 set ts=4 sw=4 et
