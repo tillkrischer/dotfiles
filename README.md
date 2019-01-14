@@ -11,18 +11,13 @@ to create symlinks
 for vim on windows
 `mklink /D vimfiles Documents\GitHub\dotfiles\vim\.vim`
 
+## vim
+create folder .vim/undo
+
 ## zsh
 
 for command not found support on arch:
 
 - install 'pkgfile'
 - `pkgfile --update`
-
-## aur dependencies
-
-j4-dmenu-desktop
-light
-numix-icon-theme-git
-ttf-ms-fonts
-ttf-roboto-mono
 
