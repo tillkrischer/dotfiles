@@ -1,0 +1,20 @@
+source ~/.vimrc
+
+nnoremap zc :action CollapseRegion<CR>
+nnoremap zo :action ExpandRegion<CR>
+
+nnoremap <c-w>L :action MoveEditorToOppositeTabGroup<cr>
+nnoremap <c-w>H :action MoveEditorToOppositeTabGroup<cr>
+
+nnoremap gi :action GotoImplementation<CR>
+"nnoremap gd <nop>
+
+nnoremap <leader>b :action Annotate<CR>
+nnoremap <leader>a :action GotoAction<CR>
+"nnoremap <leader>f :action Find<CR>
+nnoremap <leader>r :action Replace<CR>
+nnoremap <leader>f :action ReformatCode<CR>
+
+inoremap <C-y> :action EditorChooseLookupItem<CR>
+
+set commentary
