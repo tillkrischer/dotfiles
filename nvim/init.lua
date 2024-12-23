@@ -229,6 +229,19 @@ vim.keymap.set("n", "-", ex_to_current_file)
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
 
+local toggle_diffview = function()
+	if next(require("diffview.lib").views) == nil then
+		vim.cmd("DiffviewOpen")
+	else
+		vim.cmd("DiffviewClose")
+	end
+end
+
+vim.keymap.set("n", "<leader>gt", toggle_diffview, { desc = "[G]it [T]oggle Diffview" })
+vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory<CR>", { desc = "[G]it File[h]istory" })
+vim.keymap.set("n", "<leader>gH", "<Cmd>DiffviewFileHistory %<CR>", { desc = "[G]it current File[H]istory" })
+vim.keymap.set("x", "<leader>gh", "<Esc><Cmd>'<,'>DiffviewFileHistory<CR>", { desc = "[G]it current File[H]istory" })
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -1039,6 +1052,12 @@ require("lazy").setup({
 					},
 				},
 			},
+		},
+	},
+	{
+		"sindrets/diffview.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
 		},
 	},
 	-- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
