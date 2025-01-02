@@ -17,4 +17,7 @@ nnoremap <leader>f :action ReformatCode<CR>
 
 inoremap <C-y> :action EditorChooseLookupItem<CR>
 
+nnoremap ]c :action NextDiff<CR>
+nnoremap [c :action PreviousDiff<CR>
+
 set commentary
