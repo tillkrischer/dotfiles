@@ -419,7 +419,7 @@ require("lazy").setup({
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
-		branch = "0.1.x",
+		branch = "master",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -601,6 +601,7 @@ require("lazy").setup({
 
 					-- Find references for the word under your cursor.
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+					-- map("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
 
 					-- Jump to the implementation of the word under your cursor.
 					--  Useful when your language has ways of declaring types without an actual implementation.
