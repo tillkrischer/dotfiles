@@ -19,5 +19,6 @@ inoremap <C-y> :action EditorChooseLookupItem<CR>
 
 nnoremap ]c :action NextDiff<CR>
 nnoremap [c :action PreviousDiff<CR>
+nnoremap <leader>ca :action ShowIntentionActions<CR>
 
 set commentary
