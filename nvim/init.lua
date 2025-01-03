@@ -244,6 +244,8 @@ vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory<CR>", { desc = "[G]it Fi
 vim.keymap.set("n", "<leader>gH", "<Cmd>DiffviewFileHistory %<CR>", { desc = "[G]it current File[H]istory" })
 vim.keymap.set("x", "<leader>gh", "<Esc><Cmd>'<,'>DiffviewFileHistory<CR>", { desc = "[G]it current File[H]istory" })
 
+vim.keymap.set("n", "<leader>b", ":Gitsigns blame<CR>", { desc = "Git [B]lame" })
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
