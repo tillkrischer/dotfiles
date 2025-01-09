@@ -246,6 +246,9 @@ vim.keymap.set("x", "<leader>gh", "<Esc><Cmd>'<,'>DiffviewFileHistory<CR>", { de
 
 vim.keymap.set("n", "<leader>b", ":Gitsigns blame<CR>", { desc = "Git [B]lame" })
 
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
