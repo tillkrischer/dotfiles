@@ -611,6 +611,12 @@ require("lazy").setup({
             })
           end, "[G]oto [R]eferences")
           -- map("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
+          map("gR", function()
+            require("telescope.builtin").lsp_references({
+              layout_strategy = "vertical",
+              show_line = false,
+            })
+          end, "[G]oto [R]eferences")
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
