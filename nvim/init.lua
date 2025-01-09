@@ -204,26 +204,26 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 local ex_to_current_file = function()
-	local cur_file = vim.fn.expand("%:t")
-	vim.cmd.Ex()
-	vim.fn.search("^" .. cur_file .. "$")
+  local cur_file = vim.fn.expand("%:t")
+  vim.cmd.Ex()
+  vim.fn.search("^" .. cur_file .. "$")
 end
 
 vim.keymap.set("n", "-", ex_to_current_file)
@@ -232,11 +232,11 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
 
 local toggle_diffview = function()
-	if next(require("diffview.lib").views) == nil then
-		vim.cmd("DiffviewOpen")
-	else
-		vim.cmd("DiffviewClose")
-	end
+  if next(require("diffview.lib").views) == nil then
+    vim.cmd("DiffviewOpen")
+  else
+    vim.cmd("DiffviewClose")
+  end
 end
 
 vim.keymap.set("n", "<leader>gt", toggle_diffview, { desc = "[G]it [T]oggle Diffview" })
@@ -670,23 +670,27 @@ require("lazy").setup({
           map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 
           -- Find references for the word under your cursor.
-          map("gr", function()
-            require("telescope.builtin").lsp_references({
-              layout_strategy = "vertical",
-              file_ignore_patterns = {
-                "%.test.ts",
-                "%.test.tsx",
-              },
-              show_line = false,
-            })
-          end, "[G]oto [R]eferences")
+          map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
           -- map("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
-          map("gR", function()
-            require("telescope.builtin").lsp_references({
-              layout_strategy = "vertical",
-              show_line = false,
-            })
-          end, "[G]oto [R]eferences")
+
+          if client and client.name == "typescript-tools" then
+            map("gr", function()
+              require("telescope.builtin").lsp_references({
+                layout_strategy = "vertical",
+                file_ignore_patterns = {
+                  "%.test.ts",
+                  "%.test.tsx",
+                },
+                show_line = false,
+              })
+            end, "[G]oto [R]eferences")
+            map("gR", function()
+              require("telescope.builtin").lsp_references({
+                layout_strategy = "vertical",
+                show_line = false,
+              })
+            end, "[G]oto [R]eferences incl. Test")
+          end
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
@@ -1173,25 +1177,25 @@ require("lazy").setup({
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   -- { import = 'custom.plugins' },
 }, {
-	ui = {
-		-- If you are using a Nerd Font: set icons to an empty table which will use the
-		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-		icons = vim.g.have_nerd_font and {} or {
-			cmd = "⌘",
-			config = "🛠",
-			event = "📅",
-			ft = "📂",
-			init = "⚙",
-			keys = "🗝",
-			plugin = "🔌",
-			runtime = "💻",
-			require = "🌙",
-			source = "📄",
-			start = "🚀",
-			task = "📌",
-			lazy = "💤 ",
-		},
-	},
+  ui = {
+    -- If you are using a Nerd Font: set icons to an empty table which will use the
+    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+    icons = vim.g.have_nerd_font and {} or {
+      cmd = "⌘",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
+      runtime = "💻",
+      require = "🌙",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+      lazy = "💤 ",
+    },
+  },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
