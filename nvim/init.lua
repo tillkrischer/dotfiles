@@ -1159,6 +1159,9 @@ require("lazy").setup({
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {
+      on_attach = function(client)
+        client.server_capabilities.semanticTokensProvider = nil
+      end,
       settings = {
         expose_as_code_action = { "add_missing_imports", "organize_imports" },
       },
