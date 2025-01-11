@@ -407,6 +407,7 @@ require("lazy").setup({
         { "<leader>s", group = "[S]earch" },
         { "<leader>w", group = "[W]orkspace" },
         { "<leader>t", group = "[T]oggle" },
+        { "<leader>i", group = "[I]mports" },
         { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
       },
     },
@@ -633,6 +634,9 @@ require("lazy").setup({
                 show_line = false,
               })
             end, "[G]oto [R]eferences incl. Test")
+
+            map("<leader>ia", vim.cmd.TSToolsAddMissingImports, "[I]mports [A]dd missing")
+            map("<leader>io", vim.cmd.TSToolsOrganizeImports, "[I]mports [O]rganize")
           end
 
           -- Jump to the implementation of the word under your cursor.
