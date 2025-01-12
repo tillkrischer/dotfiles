@@ -546,7 +546,7 @@ require("lazy").setup({
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { "williamboman/mason.nvim", config = function() -- NOTE: Must be loaded before dependants
           local dir = vim.fn.stdpath("data") .. "/mason"
-          if (vim.fn.has("win32")) then
+          if vim.fn.has("win32") == 1 then
             dir = "c:/opt/mason"
           end
           require("mason").setup({
