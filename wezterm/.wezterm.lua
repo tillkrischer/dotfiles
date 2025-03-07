@@ -37,5 +37,6 @@ config.keys = {
     action = workspace_switcher.switch_to_prev_workspace(),
   },
 }
+config.enable_kitty_keyboard = true
 
 return config
