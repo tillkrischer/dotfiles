@@ -156,6 +156,10 @@ vim.opt.scrolloff = 10
 
 vim.opt.wrap = false
 
+if vim.fn.has("win32") == 1 then
+  vim.g.plenary_curl_bin_path = "c:/opt/curl-8.12.1_4-win64-mingw/bin/curl.exe"
+end
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -544,7 +548,9 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { "williamboman/mason.nvim", config = function() -- NOTE: Must be loaded before dependants
+      {
+        "williamboman/mason.nvim",
+        config = function() -- NOTE: Must be loaded before dependants
           local dir = vim.fn.stdpath("data") .. "/mason"
           if vim.fn.has("win32") == 1 then
             dir = "c:/opt/mason"
@@ -552,8 +558,8 @@ require("lazy").setup({
           require("mason").setup({
             install_root_dir = dir,
           })
-    end,
-    },
+        end,
+      },
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
 
@@ -1065,33 +1071,31 @@ require("lazy").setup({
     end,
   },
   {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+    },
+    opts = {
+      -- See Configuration section for options
+    },
+  },
+  {
     "zbirenbaum/copilot-cmp",
     config = function()
       require("copilot_cmp").setup()
     end,
   },
-  -- {
-  -- 	"nvim-neo-tree/neo-tree.nvim",
-  -- 	version = "*",
-  -- 	dependencies = {
-  -- 		"nvim-lua/plenary.nvim",
-  -- 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-  -- 		"MunifTanjim/nui.nvim",
-  -- 	},
-  -- 	cmd = "Neotree",
-  -- 	keys = {
-  -- 		{ "\\", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
-  -- 	},
-  -- 	opts = {
-  -- 		filesystem = {
-  -- 			window = {
-  -- 				mappings = {
-  -- 					["\\"] = "close_window",
-  -- 				},
-  -- 			},
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    version = "*",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    },
+    cmd = "Neotree",
+  },
   {
     "sindrets/diffview.nvim",
     dependencies = {
