@@ -1077,7 +1077,7 @@ require("lazy").setup({
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
     },
     opts = {
-      -- See Configuration section for options
+      model = "o3-mini"
     },
   },
   {
