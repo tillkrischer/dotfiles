@@ -39,5 +39,10 @@ return {
   },
   {
     "sindrets/diffview.nvim"
+  },
+  {
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
   }
 }
