@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 vim.diagnostic.config({
   virtual_text = {
     source = true
@@ -8,25 +10,43 @@ vim.lsp.config('*', {
   root_markers = { '.git' },
 })
 
-vim.lsp.config.lua_ls = {
-  cmd = { 'lua-language-server' },
-  filetypes = { 'lua' },
-}
+vim.lsp.enable({ 'lua_ls', 'ts_ls', 'eslint' })
 
-vim.lsp.enable({ 'lua_ls' })
+local ts_commands = function()
+  vim.api.nvim_create_user_command("AddMissingImports",
+    function() utils.ts_code_action("source.addMissingImports.ts") end, {})
 
+  vim.api.nvim_create_user_command("RemoveUnusedImports", function()
+    utils.ts_code_action("source.removeUnusedImports.ts")
+  end, {})
+
+  vim.api.nvim_create_user_command("OrganizeImports", function()
+    utils.ts_code_action("source.organizeImports.ts")
+  end, {})
+end
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', { clear = true }),
   callback = function(args)
-    local map = function(keys, func, desc, mode)
-      mode = mode or 'n'
-      vim.keymap.set(mode, keys, func, { buffer = args.buf, desc = 'LSP: ' .. desc })
-    end
+    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
-    map('<leader>f', vim.lsp.buf.format, '[F]ormat buffer')
-    map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-    map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-    map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+    if client.name == 'ts_ls' then
+      ts_commands()
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("LspProgress", {
+  ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
+  callback = function(ev)
+    local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+    vim.notify(vim.lsp.status(), "info", {
+      id = "lsp_progress",
+      title = "LSP Progress",
+      opts = function(notif)
+        notif.icon = ev.data.params.value.kind == "end" and " "
+            or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+      end,
+    })
   end,
 })

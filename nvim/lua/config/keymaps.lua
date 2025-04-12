@@ -19,6 +19,7 @@ vim.keymap.set("n", "-", ex_to_current_file)
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
 
+vim.keymap.set("n", "grf", vim.lsp.buf.format, { desc = "LSP: [F]ormat buffer" })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -27,3 +28,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+

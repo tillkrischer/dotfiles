@@ -1,24 +1,10 @@
 return {
   {
-    "folke/lazydev.nvim",
-    ft = "lua",
-    opts = {
-      library = {
-        { path = "luvit-meta/library", words = { "vim%.uv" } },
-      },
-    },
-  },
-  {
     "catppuccin/nvim",
     priority = 1000,
     init = function()
       vim.cmd.colorscheme("catppuccin-latte")
     end,
-  },
-  {
-    "j-hui/fidget.nvim",
-    opts = {
-    },
   },
   {
     "folke/which-key.nvim",
@@ -44,11 +30,14 @@ return {
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',
     opts = {
-      ensure_installed = { 'lua' },
+      ensure_installed = { 'lua', 'diff', 'javascript', 'typescript', 'tsx', 'json', 'html', 'css', 'markdown' },
       highlight = {
         enable = true,
       },
       indent = { enable = true },
     },
   },
+  {
+    "sindrets/diffview.nvim"
+  }
 }
