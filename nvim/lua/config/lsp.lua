@@ -1,17 +1,5 @@
 local utils = require("utils")
 
-vim.diagnostic.config({
-  virtual_text = {
-    source = true
-  },
-})
-
-vim.lsp.config('*', {
-  root_markers = { '.git' },
-})
-
-vim.lsp.enable({ 'lua_ls', 'ts_ls', 'eslint' })
-
 local ts_commands = function()
   vim.api.nvim_create_user_command("AddMissingImports",
     function() utils.ts_code_action("source.addMissingImports.ts") end, {})
@@ -40,7 +28,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
   callback = function(ev)
     local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-    vim.notify(vim.lsp.status(), "info", {
+    vim.notify(vim.lsp.status(), vim.log.levels.INFO, {
       id = "lsp_progress",
       title = "LSP Progress",
       opts = function(notif)
