@@ -26,6 +26,7 @@ return {
     },
   },
   {
+    --windows: https://github.com/mstorsjo/llvm-mingw
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',
