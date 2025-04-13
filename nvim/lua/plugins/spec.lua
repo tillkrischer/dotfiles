@@ -45,4 +45,16 @@ return {
     opts = {},
     event = "VeryLazy",
   },
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        typescript = { "prettier", stop_after_first = true },
+        typescriptreact = { "prettier", stop_after_first = true },
+      },
+    },
+    keys = {
+      { "grf", function() require("conform").format({ async = true, lsp_format = "fallback" }) end, desc = "Format" },
+    },
+  }
 }
