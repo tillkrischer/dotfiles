@@ -56,5 +56,11 @@ return {
     keys = {
       { "grf", function() require("conform").format({ async = true, lsp_format = "fallback" }) end, desc = "Format" },
     },
-  }
+  },
+  {
+    'echasnovski/mini.nvim',
+    config = function()
+      require('mini.icons').setup()
+    end,
+  },
 }
