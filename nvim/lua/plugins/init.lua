@@ -28,6 +28,7 @@ return {
   {
     --windows: https://github.com/mstorsjo/llvm-mingw
     'nvim-treesitter/nvim-treesitter',
+    event = { "VeryLazy" },
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',
     opts = {
@@ -61,6 +62,7 @@ return {
   },
   {
     'echasnovski/mini.nvim',
+    lazy = true,
     config = function()
       require('mini.icons').setup()
     end,
