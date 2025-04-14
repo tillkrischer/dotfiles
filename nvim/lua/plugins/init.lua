@@ -42,6 +42,9 @@ return {
   {
     "sindrets/diffview.nvim",
     event = "VeryLazy",
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    },
   },
   {
     "folke/ts-comments.nvim",
