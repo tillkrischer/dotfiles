@@ -20,6 +20,8 @@ return {
       vim.lsp.enable('ts_ls')
       vim.lsp.enable('graphql')
       vim.lsp.enable('jsonls')
+      vim.lsp.enable('html')
+      vim.lsp.enable('cssls')
       require('lspconfig').eslint.setup({})
     end
   }
