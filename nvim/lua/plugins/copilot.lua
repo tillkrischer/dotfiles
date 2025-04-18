@@ -13,13 +13,16 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    event = "VeryLazy",
     dependencies = {
       { "zbirenbaum/copilot.lua", },
       { "nvim-lua/plenary.nvim",  branch = "master" },
     },
     opts = {
       model = "o3-mini"
+    },
+    cmd = {
+      "CopilotChat",
+      "CopilotChatToggle",
     },
   },
 }

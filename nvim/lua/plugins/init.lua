@@ -41,9 +41,12 @@ return {
   },
   {
     "sindrets/diffview.nvim",
-    event = "VeryLazy",
     dependencies = {
       'nvim-tree/nvim-web-devicons'
+    },
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewFileHistory",
     },
   },
   {
@@ -62,12 +65,5 @@ return {
     keys = {
       { "grf", function() require("conform").format({ async = true, lsp_format = "fallback" }) end, desc = "Format" },
     },
-  },
-  {
-    'echasnovski/mini.nvim',
-    lazy = true,
-    config = function()
-      require('mini.icons').setup()
-    end,
   },
 }
