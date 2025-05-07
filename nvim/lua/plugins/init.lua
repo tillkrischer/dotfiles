@@ -22,7 +22,11 @@ return {
       keymap = { preset = 'default' },
       signature = {
         enabled = true
-      }
+      },
+      cmdline = {
+        keymap = { preset = 'inherit' },
+        completion = { menu = { auto_show = true } },
+      },
     },
   },
   {
