@@ -18,7 +18,7 @@ return {
       { "nvim-lua/plenary.nvim",  branch = "master" },
     },
     opts = {
-      model = "o3-mini"
+      model = "gpt-4.1"
     },
     cmd = {
       "CopilotChat",
