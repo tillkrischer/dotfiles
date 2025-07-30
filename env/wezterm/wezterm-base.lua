@@ -15,6 +15,11 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   config.default_prog = { "C:/Program Files/PowerShell/7/pwsh.exe" }
 end
 
+if wezterm.target_triple == 'aarch64-apple-darwin' then
+  config.font_size = 16.0
+end
+
+
 config.keys = utils.merge(
   {
     {
