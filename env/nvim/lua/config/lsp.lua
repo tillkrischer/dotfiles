@@ -20,6 +20,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     if client.name == 'ts_ls' then
       ts_commands()
+
+      vim.keymap.set('n', '<leader>o', function()
+        vim.cmd('AddMissingImports')
+        vim.cmd('RemoveUnusedImports')
+        vim.cmd('OrganizeImports')
+        vim.lsp.buf.format()
+      end, { desc = "Organize imports and format" })
     end
   end,
 })
