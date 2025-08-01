@@ -25,6 +25,7 @@ return {
       vim.lsp.enable('cssls')
       vim.lsp.enable('cucumber_language_server')
       require('lspconfig').eslint.setup({})
+      vim.lsp.enable('csharp_ls')
     end
   }
 }
