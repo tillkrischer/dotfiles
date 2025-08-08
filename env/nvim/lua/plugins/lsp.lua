@@ -2,19 +2,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
-    dependencies = {
-      {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
-        opts = {
-          library = {
-            -- See the configuration section for more details
-            -- Load luvit types when the `vim.uv` word is found
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-          },
-        },
-      },
-    },
     config = function()
       vim.lsp.enable('lua_ls')
       vim.lsp.enable('ts_ls')
@@ -26,6 +13,16 @@ return {
       vim.lsp.enable('cucumber_language_server')
       require('lspconfig').eslint.setup({})
       vim.lsp.enable('csharp_ls')
+
+      vim.lsp.config('lua_ls', {
+        settings = {
+          Lua = {
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+          },
+        },
+      })
     end
   }
 }

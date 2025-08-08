@@ -24,7 +24,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set('n', '<leader>o', function()
         vim.cmd('AddMissingImports')
         vim.cmd('RemoveUnusedImports')
-        vim.cmd('OrganizeImports')
         vim.lsp.buf.format()
       end, { desc = "Organize imports and format" })
     end

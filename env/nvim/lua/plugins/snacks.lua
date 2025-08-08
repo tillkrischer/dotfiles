@@ -6,7 +6,10 @@ return {
     ---@type snacks.Config
     opts = {
       notifier = {},
-      picker = {},
+      picker = {
+        enabled = true,
+        ui_select = true,
+      },
       -- explorer = {},
     },
     keys = {
