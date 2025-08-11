@@ -67,7 +67,7 @@ return {
       },
     },
     keys = {
-      { "grf", function() require("conform").format({ async = true, lsp_format = "fallback" }) end, desc = "Format" },
+      { "<leader>f", function() require("conform").format({ async = true, lsp_format = "fallback" }) end, desc = "Format" },
     },
   },
   {
