@@ -27,6 +27,11 @@ return {
         keymap = { preset = 'inherit' },
         completion = { menu = { auto_show = true } },
       },
+      sources = {
+        per_filetype = {
+          codecompanion = { "codecompanion" },
+        }
+      }
     },
   },
   {
@@ -36,7 +41,7 @@ return {
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',
     opts = {
-      ensure_installed = { 'lua', 'diff', 'javascript', 'typescript', 'tsx', 'json', 'html', 'css', 'markdown' },
+      ensure_installed = { 'lua', 'diff', 'javascript', 'typescript', 'tsx', 'json', 'html', 'css', 'markdown', 'markdown_inline' },
       highlight = {
         enable = true,
       },
