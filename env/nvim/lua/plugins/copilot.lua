@@ -20,7 +20,7 @@ return {
       { "nvim-lua/plenary.nvim",  branch = "master" },
     },
     opts = {
-      model = "gpt-4.1",
+      model = "claude-sonnet-4",
       mappings = {
         complete = {
           insert = "<Tab>",

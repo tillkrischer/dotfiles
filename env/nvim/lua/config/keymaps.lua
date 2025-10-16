@@ -3,6 +3,8 @@ vim.api.nvim_create_user_command('Wq', function() vim.cmd('wq') end, { desc = 'a
 vim.api.nvim_create_user_command('W', function() vim.cmd('w') end, { desc = 'alias for :w' })
 vim.api.nvim_create_user_command('Q', function() vim.cmd('q') end, { desc = 'alias for :q' })
 
+vim.keymap.set('n', '<leader>q', function() vim.diagnostic.setqflist() end, { desc = 'Set diagnostics to quickfix list' })
+
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
