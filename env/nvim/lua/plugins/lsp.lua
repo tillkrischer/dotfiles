@@ -10,8 +10,8 @@ return {
       vim.lsp.enable('html')
       vim.lsp.enable('cssls')
       vim.lsp.enable('cssls')
+      vim.lsp.enable('eslint')
       -- vim.lsp.enable('cucumber_language_server')
-      require('lspconfig').eslint.setup({})
       vim.lsp.enable('csharp_ls')
 
       vim.lsp.config('lua_ls', {
