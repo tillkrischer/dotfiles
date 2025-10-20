@@ -23,22 +23,6 @@ local function ts_code_action(action)
   end
 end
 
-
-local function typescript_imports_keymap()
-  vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(args)
-      local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-      if client.name == 'ts_ls' then
-        vim.keymap.set('n', '<leader>o', function()
-          ts_code_action('source.addMissingImports.ts')
-          ts_code_action('source.removeUnusedImports.ts')
-        end, { desc = "Organize imports" })
-      end
-    end,
-  })
-end
-
-
 return {
   {
     "neovim/nvim-lspconfig",
@@ -65,7 +49,26 @@ return {
         },
       })
 
-      typescript_imports_keymap()
+      vim.lsp.config('ts_ls', {
+        on_attach = function(client, bufnr)
+          vim.keymap.set('n', '<leader>o', function()
+            ts_code_action('source.addMissingImports.ts')
+            ts_code_action('source.removeUnusedImports.ts')
+          end, { desc = "Organize imports" })
+
+          vim.api.nvim_buf_create_user_command(bufnr, 'LspTypescriptSourceAction', function()
+            local source_actions = vim.tbl_filter(function(action)
+              return vim.startswith(action, 'source.')
+            end, client.server_capabilities.codeActionProvider.codeActionKinds)
+
+            vim.lsp.buf.code_action({
+              context = {
+                only = source_actions,
+              },
+            })
+          end, {})
+        end,
+      })
     end
   }
 }
