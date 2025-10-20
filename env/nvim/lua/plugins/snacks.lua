@@ -5,7 +5,7 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      notifier = {},
+      -- notifier = {},
       picker = {
         enabled = true,
         ui_select = true,
