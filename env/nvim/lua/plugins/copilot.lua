@@ -40,7 +40,7 @@ return {
         chat  = {
           adapter = {
             name = "copilot",
-            model = "gpt-5"
+            model = "gpt-5-mini"
           }
         }
       }

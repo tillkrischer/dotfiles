@@ -11,6 +11,7 @@ return {
         ui_select = true,
       },
       -- explorer = {},
+      lazygit = {},
     },
     keys = {
       -- Top Pickers & Explorer

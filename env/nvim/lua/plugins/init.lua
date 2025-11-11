@@ -87,4 +87,10 @@ return {
       "ColorizerToggle",
     },
   },
+  {
+    "tpope/vim-fugitive",
+  },
+  {
+    "will133/vim-dirdiff"
+  }
 }
