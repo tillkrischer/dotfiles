@@ -91,6 +91,13 @@ return {
     "tpope/vim-fugitive",
   },
   {
-    "will133/vim-dirdiff"
+    "deathbeam/difftool.nvim"
+  },
+  {
+    "dmmulroy/tsc.nvim",
+    opts = {},
+    cmd = {
+      "TSC",
+    },
   }
 }
