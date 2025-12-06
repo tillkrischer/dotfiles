@@ -1,15 +1,19 @@
+local secrets = require('secrets')
+
 return {
+  -- {
+  --   "github/copilot.vim"
+  -- },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        suggestion = {
-          auto_trigger = true,
-        },
-      })
-    end,
+    opts = {
+      suggestion = {
+        auto_trigger = true,
+      },
+      auth_provider_url = secrets.copilot_auth_provider_url,
+    }
   },
   -- {
   --   "CopilotC-Nvim/CopilotChat.nvim",
@@ -33,20 +37,20 @@ return {
   --   },
   --
   -- },
-  {
-    "olimorris/codecompanion.nvim",
-    opts = {
-      strategies = {
-        chat  = {
-          adapter = {
-            name = "copilot",
-            model = "gpt-5-mini"
-          }
-        }
-      }
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-  },
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   opts = {
+  --     strategies = {
+  --       chat  = {
+  --         adapter = {
+  --           name = "copilot",
+  --           model = "gpt-5-mini"
+  --         }
+  --       }
+  --     }
+  --   },
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  -- },
 }
