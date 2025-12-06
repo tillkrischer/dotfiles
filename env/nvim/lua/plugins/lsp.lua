@@ -38,6 +38,7 @@ return {
       vim.lsp.enable('eslint')
       -- vim.lsp.enable('cucumber_language_server')
       vim.lsp.enable('csharp_ls')
+      vim.lsp.enable('clangd')
 
       vim.lsp.config('lua_ls', {
         settings = {
