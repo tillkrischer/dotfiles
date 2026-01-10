@@ -5,7 +5,7 @@ local utils = require("utils")
 local config = {}
 config.font = wezterm.font("JetBrains Mono")
 -- config.color_scheme = "Tokyo Night"
-config.color_scheme = 'Catppuccin Latte'
+config.color_scheme = 'Catppuccin Frappe'
 -- config.enable_tab_bar = false
 config.use_fancy_tab_bar = false
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
