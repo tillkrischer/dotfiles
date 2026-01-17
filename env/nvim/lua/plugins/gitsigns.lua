@@ -3,7 +3,7 @@ return {
     'lewis6991/gitsigns.nvim',
     event = "VeryLazy",
     opts = {
-      word_diff  = true,
+      -- word_diff  = true,
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
