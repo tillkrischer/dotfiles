@@ -1,0 +1,5 @@
+theme = Catppuccin Frappe
+
+keybind = ctrl+shift+x=write_screen_file:paste
+
+font-feature = -calt, -liga, -dlig
