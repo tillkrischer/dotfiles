@@ -13,9 +13,9 @@ require('nvim-treesitter').install({
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'lua', 'typescript', 'typescriptreact' },
-  callback = function()
-    vim.treesitter.start()
-    vim.o.foldmethod = 'expr'
-    vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+  callback = function(args)
+    vim.treesitter.start(args.buf)
+    vim.wo.foldmethod = 'expr'
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
   end,
 })

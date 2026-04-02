@@ -8,11 +8,11 @@ vim.pack.add({
   'https://github.com/stevearc/oil.nvim',
   -- { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.10.1') }
 })
-
 vim.cmd.packadd('nvim.difftool')
 
 vim.cmd.colorscheme('kanagawa')
 
+require('which-key').setup()
 require('config.plugins.snacks')
 require('config.plugins.gitsigns')
 require('config.plugins.oil')
