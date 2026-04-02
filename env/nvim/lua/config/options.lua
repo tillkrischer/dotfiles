@@ -18,13 +18,15 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.confirm = true
 vim.opt.wrap = false
-
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.completeopt = 'menu,menuone,popup,fuzzy,noinsert'
 
 vim.diagnostic.config({
   virtual_text = {
-    source = true
+    source = true,
   },
 })
+
+require('vim._core.ui2').enable({})

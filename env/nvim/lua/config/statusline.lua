@@ -1,27 +1,93 @@
-local function lsp_status()
-  local attached_clients = vim.lsp.get_clients({ bufnr = 0 })
-  if #attached_clients == 0 then
-    return ""
+local statusline = {}
+
+function statusline.progress()
+  if not package.loaded['vim.ui'] then
+    return ''
   end
-  local names = vim.iter(attached_clients)
-      :map(function(client)
-        local name = client.name:gsub("language.server", "ls")
-        return name
-      end)
-      :totable()
-  return "[" .. table.concat(names, ", ") .. "]"
+
+  if vim.api.nvim_get_current_win() ~= tonumber(vim.g.actual_curwin or -1) then
+    return ''
+  end
+
+  return vim.ui.progress_status() or ''
 end
 
-function _G.statusline()
-  return table.concat({
-    "%f",
-    "%w%m%r",
-    "%y",
-    "%=",
-    lsp_status(),
-    "%l,%c%V%",
-    " %P",
-  }, " ")
+function statusline.showcmd()
+  if vim.o.showcmdloc == 'statusline' then
+    return '%-10.S '
+  end
+
+  return ''
 end
 
-vim.o.statusline = "%{%v:lua._G.statusline()%}"
+function statusline.keymap()
+  if vim.b.keymap_name and vim.b.keymap_name ~= '' then
+    return '<' .. vim.b.keymap_name .. '> '
+  end
+
+  return ''
+end
+
+function statusline.busy()
+  if vim.o.busy > 0 then
+    return '◐ '
+  end
+
+  return ''
+end
+
+function statusline.diagnostics()
+  if not package.loaded['vim.diagnostic'] or not next(vim.diagnostic.count()) then
+    return ''
+  end
+
+  return vim.diagnostic.status() .. ' '
+end
+
+function statusline.lsp_clients()
+  if not package.loaded['vim.lsp'] then
+    return ''
+  end
+
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+
+  if #clients == 0 then
+    return ''
+  end
+
+  local names = {}
+
+  for _, client in ipairs(clients) do
+    names[#names + 1] = client.name
+  end
+
+  return '[' .. table.concat(names, ',') .. '] '
+end
+
+function statusline.ruler()
+  if not vim.o.ruler then
+    return ''
+  end
+
+  if vim.o.rulerformat == '' then
+    return '%-14.(%l,%c%V%) %P'
+  end
+
+  return vim.o.rulerformat
+end
+
+_G.dotfiles_statusline = statusline
+
+vim.o.statusline = table.concat({
+  '%<',
+  '%f %h%w%m%r ',
+  "%{% v:lua.require('vim._core.util').term_exitcode() %}",
+  '%=',
+  '%{% v:lua.dotfiles_statusline.progress() %}',
+  -- "%{% v:lua.dotfiles_statusline.showcmd() %}",
+  -- "%{% v:lua.dotfiles_statusline.keymap() %}",
+  '%{% v:lua.dotfiles_statusline.busy() %}',
+  '%{% v:lua.dotfiles_statusline.diagnostics() %}',
+  '%{% v:lua.dotfiles_statusline.lsp_clients() %}',
+  '%{% v:lua.dotfiles_statusline.ruler() %}',
+})
