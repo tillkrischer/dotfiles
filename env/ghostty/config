@@ -1,4 +1,4 @@
-theme = Catppuccin Frappe
+theme = Kanagawa Wave
 
 keybind = ctrl+shift+x=write_screen_file:paste
 
