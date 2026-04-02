@@ -12,22 +12,6 @@ function statusline.progress()
   return vim.ui.progress_status() or ''
 end
 
-function statusline.showcmd()
-  if vim.o.showcmdloc == 'statusline' then
-    return '%-10.S '
-  end
-
-  return ''
-end
-
-function statusline.keymap()
-  if vim.b.keymap_name and vim.b.keymap_name ~= '' then
-    return '<' .. vim.b.keymap_name .. '> '
-  end
-
-  return ''
-end
-
 function statusline.busy()
   if vim.o.busy > 0 then
     return '◐ '
@@ -81,11 +65,8 @@ _G.dotfiles_statusline = statusline
 vim.o.statusline = table.concat({
   '%<',
   '%f %h%w%m%r ',
-  "%{% v:lua.require('vim._core.util').term_exitcode() %}",
   '%=',
   '%{% v:lua.dotfiles_statusline.progress() %}',
-  -- "%{% v:lua.dotfiles_statusline.showcmd() %}",
-  -- "%{% v:lua.dotfiles_statusline.keymap() %}",
   '%{% v:lua.dotfiles_statusline.busy() %}',
   '%{% v:lua.dotfiles_statusline.diagnostics() %}',
   '%{% v:lua.dotfiles_statusline.lsp_clients() %}',
