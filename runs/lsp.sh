@@ -6,3 +6,7 @@ npm i -g graphql-language-service-cli
 npm i -g @github/copilot-language-server
 
 dotnet tool install --global csharp-ls
+
+
+# arch
+pacman -S lua-language-server
