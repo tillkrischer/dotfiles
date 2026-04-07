@@ -12,7 +12,17 @@ require('nvim-treesitter').install({
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'lua', 'typescript', 'typescriptreact' },
+  pattern = {
+    'lua',
+    'diff',
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+    'json',
+    'html',
+    'css',
+  },
   callback = function(args)
     vim.treesitter.start(args.buf)
     vim.wo.foldmethod = 'expr'
