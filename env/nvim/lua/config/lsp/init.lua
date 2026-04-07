@@ -1,7 +1,9 @@
 local lua_ls = require('config.lsp.lua_ls')
+local roslyn_ls = require('config.lsp.roslyn_ls')
 local ts_ls = require('config.lsp.ts_ls')
 
 lua_ls.setup()
+roslyn_ls.setup()
 ts_ls.setup()
 
 vim.lsp.enable('graphql')
@@ -10,8 +12,8 @@ vim.lsp.enable('html')
 vim.lsp.enable('cssls')
 vim.lsp.enable('eslint')
 vim.lsp.enable('copilot')
+vim.lsp.enable('roslyn_ls')
 -- vim.lsp.enable('cucumber_language_server')
--- vim.lsp.enable('csharp_ls')
 -- vim.lsp.enable('clangd')
 
 vim.lsp.config('copilot', {
