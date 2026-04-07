@@ -9,6 +9,7 @@ require('nvim-treesitter').install({
   'css',
   'markdown',
   'markdown_inline',
+  'c_sharp',
 })
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -22,6 +23,7 @@ vim.api.nvim_create_autocmd('FileType', {
     'json',
     'html',
     'css',
+    'cs',
   },
   callback = function(args)
     vim.treesitter.start(args.buf)

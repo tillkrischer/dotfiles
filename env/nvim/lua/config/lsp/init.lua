@@ -1,9 +1,7 @@
 local lua_ls = require('config.lsp.lua_ls')
-local roslyn_ls = require('config.lsp.roslyn_ls')
 local ts_ls = require('config.lsp.ts_ls')
 
 lua_ls.setup()
-roslyn_ls.setup()
 ts_ls.setup()
 
 vim.lsp.enable('graphql')
