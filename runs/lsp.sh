@@ -4,6 +4,7 @@ npm i -g typescript-language-server
 npm i -g vscode-langservers-extracted
 npm i -g graphql-language-service-cli
 npm i -g @github/copilot-language-server
+npm i -g @typescript/native-preview
 
 # arch
 pacman -S lua-language-server
