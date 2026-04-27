@@ -1,7 +1,6 @@
 vim.pack.add({
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/nvim-treesitter/nvim-treesitter',
-  'https://github.com/rebelot/kanagawa.nvim',
   'https://github.com/lewis6991/gitsigns.nvim',
   'https://github.com/folke/snacks.nvim',
   'https://github.com/folke/which-key.nvim',
@@ -12,10 +11,8 @@ vim.pack.add({
 })
 vim.cmd.packadd('nvim.difftool')
 
-vim.cmd.colorscheme('kanagawa')
-
 require('which-key').setup()
-require('colorizer').setup()
+-- require('colorizer').setup()
 require('config.plugins.snacks')
 require('config.plugins.gitsigns')
 require('config.plugins.oil')

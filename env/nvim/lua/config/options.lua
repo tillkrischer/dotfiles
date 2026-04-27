@@ -2,6 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.number = true
 vim.opt.showmode = false
+vim.opt.termguicolors = true
 vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
@@ -28,5 +29,7 @@ vim.diagnostic.config({
     source = true,
   },
 })
+
+vim.cmd.colorscheme('catppuccin')
 
 require('vim._core.ui2').enable({})

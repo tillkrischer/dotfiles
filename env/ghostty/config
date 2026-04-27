@@ -1,4 +1,4 @@
-theme = Kanagawa Wave
+theme = dark:Catpuccin,light:Catppuccin Latte
 
 keybind = ctrl+shift+x=write_screen_file:paste
 
