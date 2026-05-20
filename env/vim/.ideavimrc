@@ -6,7 +6,8 @@ nnoremap zo :action ExpandRegion<CR>
 nnoremap <c-w>L :action MoveEditorToOppositeTabGroup<cr>
 nnoremap <c-w>H :action MoveEditorToOppositeTabGroup<cr>
 
-nnoremap gi :action GotoImplementation<CR>
+nnoremap gri :action GotoImplementation<CR>
+nnoremap gra :action ShowIntentionActions<CR>
 "nnoremap gd <nop>
 
 nnoremap <leader>b :action Annotate<CR>
@@ -19,6 +20,5 @@ inoremap <C-y> :action EditorChooseLookupItem<CR>
 
 nnoremap ]c :action NextDiff<CR>
 nnoremap [c :action PreviousDiff<CR>
-nnoremap <leader>ca :action ShowIntentionActions<CR>
 
 set commentary
