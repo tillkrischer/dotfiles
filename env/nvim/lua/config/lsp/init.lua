@@ -1,7 +1,8 @@
 local lsp_configs = {
   lua_ls = require('config.lsp.lua_ls'),
   roslyn_ls = require('config.lsp.roslyn_ls'),
-  ts_ls = require('config.lsp.ts_ls'),
+  tsgo = require('config.lsp.tsgo'),
+  -- ts_ls = require('config.lsp.ts_ls'),
 }
 
 for _, lsp_config in pairs(lsp_configs) do
