@@ -1,10 +1,12 @@
-local lua_ls = require('config.lsp.lua_ls')
-local roslyn_ls = require('config.lsp.roslyn_ls')
-local ts_ls = require('config.lsp.ts_ls')
+local lsp_configs = {
+  lua_ls = require('config.lsp.lua_ls'),
+  roslyn_ls = require('config.lsp.roslyn_ls'),
+  ts_ls = require('config.lsp.ts_ls'),
+}
 
-lua_ls.setup()
-roslyn_ls.setup()
-ts_ls.setup()
+for _, lsp_config in pairs(lsp_configs) do
+  lsp_config.setup()
+end
 
 vim.lsp.enable('graphql')
 vim.lsp.enable('jsonls')
@@ -40,8 +42,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
       return
     end
 
-    if client.name == 'ts_ls' then
-      ts_ls.on_attach(client, args.buf)
+    local lsp_config = lsp_configs[client.name]
+    if lsp_config and lsp_config.on_attach then
+      lsp_config.on_attach(client, args.buf)
     end
 
     vim.lsp.completion.enable(true, client_id, args.buf, { autotrigger = true })
