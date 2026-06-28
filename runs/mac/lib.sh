@@ -1,14 +1,28 @@
 download_and_verify() {
   url="$1"
-  sha256="$2"
+  expected="$2"
   output="$3"
 
   curl -L "$url" -o "$output"
-  actual=$(shasum -a 256 "$output" | awk '{print $1}')
 
-  if [ "$actual" != "$sha256" ]; then
-    echo "sha256 mismatch for $url" >&2
-    echo "expected: $sha256" >&2
+  case ${#expected} in
+    64)
+      algorithm=256
+      ;;
+    128)
+      algorithm=512
+      ;;
+    *)
+      echo "unsupported checksum length for $url" >&2
+      exit 1
+      ;;
+  esac
+
+  actual=$(shasum -a "$algorithm" "$output" | awk '{print $1}')
+
+  if [ "$actual" != "$expected" ]; then
+    echo "sha$algorithm mismatch for $url" >&2
+    echo "expected: $expected" >&2
     echo "actual:   $actual" >&2
     exit 1
   fi
@@ -23,6 +37,9 @@ extract_archive() {
   case "$archive" in
     *.tar.gz|*.tgz)
       tar -xzf "$archive" -C "$dest"
+      ;;
+    *.tar.xz|*.txz)
+      tar -xJf "$archive" -C "$dest"
       ;;
     *.zip)
       unzip -q "$archive" -d "$dest"
