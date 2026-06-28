@@ -1,0 +1,9 @@
+install_zoxide() {
+  install_archive_binary \
+    "zoxide" \
+    "0.9.9" \
+    "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.9/zoxide-0.9.9-aarch64-apple-darwin.tar.gz" \
+    "57e733d0436309dae2ed97e46bba43937209395298e1d88812d4e893900cb40a" \
+    "zoxide" \
+    "zoxide"
+}
