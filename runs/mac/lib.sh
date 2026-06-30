@@ -58,6 +58,18 @@ link_bin() {
   ln -sfn "$target" "$LOCAL_DIR/bin/$name"
 }
 
+wrap_bin() {
+  target="$1"
+  name="$2"
+
+  rm -f "$LOCAL_DIR/bin/$name"
+  cat > "$LOCAL_DIR/bin/$name" <<EOF
+#!/bin/sh
+exec "$target" "\$@"
+EOF
+  chmod +x "$LOCAL_DIR/bin/$name"
+}
+
 install_archive_binary() {
   name="$1"
   version="$2"
