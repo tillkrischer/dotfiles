@@ -1,0 +1,133 @@
+#!/usr/bin/env zsh
+
+# .zshrc:
+#
+#   gldiff() {
+#     local generated
+#     generated=$(command ~/.local/git-filtered-diff "$@") || return
+#     print -z -- "$generated"
+#   }
+
+setopt NO_UNSET PIPE_FAIL
+
+readonly program=${0:t}
+
+usage() {
+  print -u2 -r -- "Usage: $program <subject-text> [-- <git-log-args...>]"
+  print -u2 -r -- "Example: $program 'ABC-123' -- --author='Jane' main -- src/"
+}
+
+die() {
+  print -u2 -r -- "$program: $*"
+  exit 1
+}
+
+(( $# >= 1 )) || {
+  usage
+  exit 2
+}
+
+readonly subject_filter=$1
+shift
+
+typeset -a log_args
+if (( $# > 0 )); then
+  [[ $1 == -- ]] || die "git log arguments must follow --"
+  shift
+  log_args=("$@")
+fi
+
+for arg in "${log_args[@]}"; do
+  [[ $arg != --reverse ]] || die "--reverse is not supported because endpoint selection relies on normal newest-to-oldest git log order"
+done
+
+repo_root=$(command git rev-parse --show-toplevel 2>/dev/null) ||
+  die "the current directory is not inside a Git repository"
+
+[[ ${PWD:A} == ${repo_root:A} ]] ||
+  die "run this command from the repository root: $repo_root"
+
+# Insert our output controls before Git's pathspec separator. This lets callers
+# pass revisions and pathspecs while keeping the output machine-readable.
+typeset -a log_selection pathspec
+typeset -i after_separator=0
+for arg in "${log_args[@]}"; do
+  if (( ! after_separator )) && [[ $arg == -- ]]; then
+    after_separator=1
+  elif (( after_separator )); then
+    pathspec+=("$arg")
+  else
+    log_selection+=("$arg")
+  fi
+done
+
+typeset log_output
+log_output=$(command git log \
+  "${log_selection[@]}" \
+  --format='%H %s' \
+  --no-patch \
+  --no-decorate \
+  --no-notes \
+  --no-show-signature \
+  --no-color \
+  --no-graph \
+  -- \
+  "${pathspec[@]}") || die "git log failed"
+
+typeset -a matching_hashes matching_subjects
+typeset line hash subject
+for line in "${(f)log_output}"; do
+  (( ${#line} >= 41 )) || continue
+  hash=${line[1,40]}
+  [[ $hash != *[^[:xdigit:]]* ]] || continue
+  subject=${line[42,-1]}
+
+  if [[ $subject == *"$subject_filter"* ]]; then
+    matching_hashes+=("$hash")
+    matching_subjects+=("$subject")
+  fi
+done
+
+(( ${#matching_hashes} > 0 )) || die "no commit subjects contain: $subject_filter"
+
+print -u2 -r -- "Matching commits (newest to oldest):"
+typeset -i i
+for (( i = 1; i <= ${#matching_hashes}; ++i )); do
+  print -u2 -r -- "${matching_hashes[i][1,12]} ${matching_subjects[i]}"
+done
+
+readonly latest=${matching_hashes[1]}
+readonly earliest=${matching_hashes[-1]}
+
+earliest_parent=$(command git rev-parse --verify --quiet "${earliest}^" 2>/dev/null) ||
+  die "the earliest matching commit has no parent, so the requested diff range cannot be formed"
+
+command git merge-base --is-ancestor "$earliest" "$latest" ||
+  die "the earliest matching commit is not an ancestor of the latest; refusing to create a misleading diff range"
+
+print -n -u2 -r -- "Create the diff command? [y/N] "
+typeset reply
+IFS= read -r reply || exit 1
+print -u2 -r -- ""
+[[ ${reply:l} == y || ${reply:l} == yes ]] || {
+  print -u2 -r -- "Cancelled."
+  exit 1
+}
+
+typeset -A touched_paths
+typeset touched_file
+while IFS= read -r -d $'\0' touched_file; do
+  touched_paths[$touched_file]=1
+done < <(
+  print -rl -- "${matching_hashes[@]}" |
+    command git diff-tree --stdin --root -m --no-commit-id --name-only -r -z
+)
+
+(( ${#touched_paths} > 0 )) || die "the matching commits do not touch any files"
+
+typeset generated="git diff ${(q)earliest_parent}...${(q)latest} --"
+for touched_file in "${(@ok)touched_paths}"; do
+  generated+=" ${(q)touched_file}"
+done
+
+print -r -- "$generated"
