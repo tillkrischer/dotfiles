@@ -14,7 +14,7 @@ function M.setup()
 end
 
 function M.on_attach(client, bufnr)
-  client.server_capabilities.completionProvider.triggerCharacters = trigger_chars
+  -- client.server_capabilities.completionProvider.triggerCharacters = trigger_chars
 
   vim.keymap.set('n', 'gas', function()
     local code_action_provider = client.server_capabilities.codeActionProvider
