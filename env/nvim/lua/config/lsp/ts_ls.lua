@@ -10,6 +10,19 @@ local is_test_file = function(path)
 end
 
 function M.setup()
+  local default_root_dir = vim.lsp.config.ts_ls.root_dir
+  local typescript = require('config.lsp.typescript')
+
+  vim.lsp.config('ts_ls', {
+    root_dir = function(bufnr, on_dir)
+      default_root_dir(bufnr, function(root_dir)
+        if not typescript.has_native_lsp(root_dir) then
+          on_dir(root_dir)
+        end
+      end)
+    end,
+  })
+
   vim.lsp.enable('ts_ls')
 end
 

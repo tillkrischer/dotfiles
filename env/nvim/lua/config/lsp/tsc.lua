@@ -5,7 +5,22 @@ local is_test_file = function(path)
 end
 
 function M.setup()
-  vim.lsp.config('tsc', {})
+  local default_config = vim.lsp.config.tsc
+  local default_root_dir = default_config.root_dir
+  local typescript = require('config.lsp.typescript')
+
+  vim.lsp.config('tsc', {
+    -- Keep this paired with root_dir: both share lspconfig's binary cache.
+    cmd = default_config.cmd,
+    root_dir = function(bufnr, on_dir)
+      default_root_dir(bufnr, function(root_dir)
+        if typescript.has_native_lsp(root_dir) then
+          on_dir(root_dir)
+        end
+      end)
+    end,
+  })
+
   vim.lsp.enable('tsc')
 end
 
