@@ -10,7 +10,13 @@ local is_test_file = function(path)
 end
 
 function M.setup()
-  local default_root_dir = vim.lsp.config.ts_ls.root_dir
+  local default_config = vim.lsp.config.ts_ls
+  if type(default_config) ~= 'table' or type(default_config.root_dir) ~= 'function' then
+    vim.notify('Skipping ts_ls: nvim-lspconfig config is missing or incompatible', vim.log.levels.WARN)
+    return
+  end
+
+  local default_root_dir = default_config.root_dir
   local typescript = require('config.lsp.typescript')
 
   vim.lsp.config('ts_ls', {
