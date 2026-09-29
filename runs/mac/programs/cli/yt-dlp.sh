@@ -1,8 +1,8 @@
 install_yt_dlp() {
   install_raw_binary \
     "yt-dlp" \
-    "2026.06.09" \
-    "https://github.com/yt-dlp/yt-dlp/releases/download/2026.06.09/yt-dlp_macos" \
-    "b82c3626952e6c14eaf654cc565866775ffd0b9ffb7021628ac59b42c2f4f244" \
+    "2026.08.19" \
+    "https://github.com/yt-dlp/yt-dlp/releases/download/2026.08.19/yt-dlp_macos" \
+    "0f192b7ec147ab6288885d6351d9ab67367640029b4377576ef46dd79cf7b202" \
     "yt-dlp"
 }
