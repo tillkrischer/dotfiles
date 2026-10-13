@@ -1,9 +1,9 @@
 install_lazygit() {
   install_archive_binary \
     "lazygit" \
-    "0.62.2" \
-    "https://github.com/jesseduffield/lazygit/releases/download/v0.62.2/lazygit_0.62.2_darwin_arm64.tar.gz" \
-    "f311d96b666b4865760e39f3967edfd7bf30b5d09e52a1bc7ae511f6bdfdd02c" \
+    "0.66.1" \
+    "https://github.com/jesseduffield/lazygit/releases/download/v0.66.1/lazygit_0.66.1_darwin_arm64.tar.gz" \
+    "c66b15f666216142a2f39143f5540c6a572473f03fab014dae07c33cd76e719a" \
     "lazygit" \
     "lazygit"
 }

@@ -1,6 +1,6 @@
 install_neovim_nightly() (
   # To upgrade, replace this with the desired full commit SHA from master.
-  commit="eddadd7ab33ece402ea43e9c0823f817404dc012"
+  commit="89370c06d73b471187e1c43743ce01bb8bd7e8d4"
   source_dir="$TMP_DIR/neovim-nightly-$commit"
   install_dir="$LOCAL_DIR/opt/neovim-nightly-$commit"
 
