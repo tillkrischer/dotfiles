@@ -21,7 +21,7 @@ function M.setup()
     cmd = default_config.cmd,
     root_dir = function(bufnr, on_dir)
       default_root_dir(bufnr, function(root_dir)
-        if typescript.has_native_lsp(root_dir) then
+        if typescript.prefers_native_lsp(root_dir) then
           on_dir(root_dir)
         end
       end)

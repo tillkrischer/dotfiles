@@ -22,7 +22,7 @@ function M.setup()
   vim.lsp.config('ts_ls', {
     root_dir = function(bufnr, on_dir)
       default_root_dir(bufnr, function(root_dir)
-        if not typescript.has_native_lsp(root_dir) then
+        if not typescript.prefers_native_lsp(root_dir) then
           on_dir(root_dir)
         end
       end)
