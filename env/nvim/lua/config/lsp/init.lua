@@ -18,6 +18,10 @@ vim.lsp.enable('copilot')
 -- vim.lsp.enable('cucumber_language_server')
 -- vim.lsp.enable('clangd')
 
+vim.lsp.config('graphql', {
+  filetypes = { 'graphql', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+})
+
 vim.lsp.config('copilot', {
   settings = {
     ['github-enterprise'] = {
