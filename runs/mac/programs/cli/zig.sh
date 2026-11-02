@@ -1,9 +1,9 @@
 install_zig() {
   install_archive_prefix \
     "zig" \
-    "0.16.0" \
-    "https://ziglang.org/download/0.16.0/zig-aarch64-macos-0.16.0.tar.xz" \
-    "b23d70deaa879b5c2d486ed3316f7eaa53e84acf6fc9cc747de152450d401489" \
-    "zig-aarch64-macos-0.16.0" \
+    "0.17.0" \
+    "https://ziglang.org/download/0.17.0/zig-aarch64-macos-0.17.0.tar.xz" \
+    "b607e9b9234790a008116ae5bdb71c6243b84b9fb42a53a9e70fde41c06c536a" \
+    "zig-aarch64-macos-0.17.0" \
     "zig:zig"
 }
