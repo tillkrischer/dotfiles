@@ -1,4 +1,5 @@
 local lsp_configs = {
+  -- inline_lsp = require('config.lsp.inline_lsp'),
   lua_ls = require('config.lsp.lua_ls'),
   roslyn_ls = require('config.lsp.roslyn_ls'),
   tsc = require('config.lsp.tsc'),
@@ -14,7 +15,7 @@ vim.lsp.enable('jsonls')
 vim.lsp.enable('html')
 vim.lsp.enable('cssls')
 vim.lsp.enable('eslint')
-vim.lsp.enable('copilot')
+-- vim.lsp.enable('copilot')
 vim.lsp.enable('clangd')
 -- vim.lsp.enable('cucumber_language_server')
 
@@ -52,7 +53,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
       lsp_config.on_attach(client, args.buf)
     end
 
-    vim.lsp.completion.enable(true, client_id, args.buf, { autotrigger = true })
+    if client:supports_method('textDocument/completion', args.buf) then
+      vim.lsp.completion.enable(true, client_id, args.buf, { autotrigger = true })
+    end
 
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, args.buf) then
       vim.lsp.inline_completion.enable(true, { bufnr = args.buf })
